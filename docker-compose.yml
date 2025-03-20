@@ -34,10 +34,13 @@ services:
       - "50000:50000"
     networks:
       - jenkins
+      - proxy-manager # Add the external network here
 
 networks:
   jenkins:
     driver: bridge
+  proxy-manager:
+    external: true # Use the pre-existing network
 
 volumes:
   jenkins-docker-certs:
